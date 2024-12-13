@@ -1,0 +1,30 @@
+.venue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.venue-item:hover {
+    transform: translateX(10px);
+}
+
+.venue-icon {
+    font-size: 1.5rem;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.venue-text h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.venue-text p {
+    color: #2c3e50;
+    font-weight: 500;
+}

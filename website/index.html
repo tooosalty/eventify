@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify - Discover Amazing Events</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/home.css">
+    <link rel="stylesheet" href="./src/styles/upcoming-events.css">
+    <link rel="stylesheet" href="./src/styles/animations.css">
+    <link rel="stylesheet" href="./src/styles/footer.css">
+    <link rel="stylesheet" href="/website/src/styles/main.css">
+<script type="module" src="/website/src/js/home.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Eventify</div>
+        <div class="nav-links">
+            <a href="./index.html" class="active">Home</a>
+            <a href="./src/pages/events.html">Events</a>
+            <a href="./src/pages/profile.html" class="profile-link hidden">Profile</a>
+            <a href="./src/pages/contact.html">Contact</a>
+            <a href="./src/pages/login.html" class="login-link">Login</a>
+            <button class="logout-btn hidden">Logout</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-slider">
+                <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200')"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1200')"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200')"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Discover Amazing Events</h1>
+                <p>Find and book tickets for the best events in your area</p>
+                <a href="./src/pages/events.html" class="cta-button">Explore Events</a>
+            </div>
+            <div class="slider-arrows">
+                <button class="slider-arrow" id="prevSlide">←</button>
+                <button class="slider-arrow" id="nextSlide">→</button>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Event Categories</h2>
+            <div class="category-grid">
+                <a href="/website/src/pages/events.html?category=music" class="category-card">
+                    <span class="category-icon">🎵</span>
+                    <h3>Music</h3>
+                </a>
+                <a href="/website/src/pages/events.html?category=tech" class="category-card">
+                    <span class="category-icon">💻</span>
+                    <h3>Tech</h3>
+                </a>
+                <a href="/website/src/pages/events.html?category=sports" class="category-card">
+                    <span class="category-icon">⚽</span>
+                    <h3>Sports</h3>
+                </a>
+                <a href="/website/src/pages/events.html?category=arts" class="category-card">
+                    <span class="category-icon">🎨</span>
+                    <h3>Arts</h3>
+                </a>
+            </div>
+        </section>
+
+        <section class="featured-events">
+            <h2>Featured Events</h2>
+            <div class="event-grid" id="featuredEvents">
+                <!-- Featured events will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <section class="upcoming-events">
+            <h2>Upcoming Events</h2>
+            <div class="upcoming-events-container">
+                <div class="upcoming-events-timeline" id="upcomingEvents">
+                    <!-- Upcoming events will be populated by JavaScript -->
+                </div>
+                <div class="view-all-container">
+                    <a href="/website/src/pages/events.html" class="view-all-button">View All Events</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="/website/src/js/firebase-config.js"></script>
+    <script type="module" src="/website/src/js/auth.js"></script>
+    <script type="module" src="/website/src/js/home.js"></script>
+    <script type="module" src="/website/src/js/animations.js"></script>
+    <script type="module" src="/website/src/js/utils/footer-loader.js"></script>
+    <script type="module" src="/website/src/js/footer.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Eventify</h3>
+            <p>Discover and book the best events in your area. From concerts to conferences, we've got you covered.</p>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/facebook.svg" alt="Facebook">
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/x.svg" alt="Twitter">
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instagram.svg" alt="Instagram">
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="/website/src/index.html">Home</a></li>
+                <li><a href="/website/src/pages/events.html">Events</a></li>
+                <li><a href="/website/src/pages/profile.html">Profile</a></li>
+                <li><a href="/website/src/pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Categories</h3>
+            <ul class="footer-links">
+                <li><a href="/website/src/pages/events.html">Music</a></li>
+                <li><a href="/website/src/pages/events.html">Tech</a></li>
+                <li><a href="/website/src/pages/events.html">Sports</a></li>
+                <li><a href="/website/src/pages/events.html">Arts</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Stay updated with our latest events and offers.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,41 @@
+<!-- Event Header Component -->
+<header class="event-header">
+    <div class="event-cover">
+        <img src="${event.image}" alt="${event.title}">
+        <div class="event-overlay"></div>
+        <span class="event-category">${event.category}</span>
+    </div>
+    <div class="event-info">
+        <h1 class="event-title">${event.title}</h1>
+        <div class="event-meta">
+            <div class="meta-item">
+                <i class="icon-calendar"></i>
+                <div>
+                    <span class="meta-label">Date & Time</span>
+                    <span class="meta-value">${formatDate(event.date)}</span>
+                </div>
+            </div>
+            <div class="meta-item">
+                <i class="icon-location"></i>
+                <div>
+                    <span class="meta-label">Location</span>
+                    <span class="meta-value">${event.location}</span>
+                </div>
+            </div>
+            <div class="meta-item">
+                <i class="icon-ticket"></i>
+                <div>
+                    <span class="meta-label">Price</span>
+                    <span class="meta-value">$${event.price}</span>
+                </div>
+            </div>
+            <div class="meta-item">
+                <i class="icon-users"></i>
+                <div>
+                    <span class="meta-label">Availability</span>
+                    <span class="meta-value">${event.seatsLeft} seats left</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

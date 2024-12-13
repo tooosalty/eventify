@@ -1,0 +1,16 @@
+.price-display {
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    line-height: 1;
+}
+
+.price-label {
+    color: #666;
+    margin-top: 0.5rem;
+}

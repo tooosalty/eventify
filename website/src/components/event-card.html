@@ -1,0 +1,28 @@
+<!-- Event Card Component -->
+<article class="event-card">
+    <div class="event-image">
+        <img src="${event.image}" alt="${event.title}">
+        <span class="event-category">${event.category}</span>
+    </div>
+    <div class="event-content">
+        <h3 class="event-title">${event.title}</h3>
+        <div class="event-meta">
+            <span class="event-date">
+                <i class="icon-calendar"></i>
+                ${formatDate(event.date)}
+            </span>
+            <span class="event-location">
+                <i class="icon-location"></i>
+                ${event.location}
+            </span>
+            <span class="event-price">
+                <i class="icon-ticket"></i>
+                $${event.price}
+            </span>
+        </div>
+        <p class="event-description">${event.description}</p>
+        <div class="event-actions">
+            <a href="/event/${event.id}" class="btn-primary">View Details</a>
+        </div>
+    </div>
+</article>

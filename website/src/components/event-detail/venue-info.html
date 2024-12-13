@@ -1,0 +1,32 @@
+<!-- Venue Information Component -->
+<section class="venue-info-section">
+    <h2>Venue Information</h2>
+    <div class="venue-content">
+        <div class="venue-map">
+            <img src="https://via.placeholder.com/600x300" alt="Venue Map" class="map-image">
+        </div>
+        <div class="venue-details">
+            <div class="venue-item">
+                <span class="venue-icon">📍</span>
+                <div class="venue-text">
+                    <h3>Address</h3>
+                    <p>${event.location}</p>
+                </div>
+            </div>
+            <div class="venue-item">
+                <span class="venue-icon">🅿️</span>
+                <div class="venue-text">
+                    <h3>Parking</h3>
+                    <p>${event.parking || 'Available on-site'}</p>
+                </div>
+            </div>
+            <div class="venue-item">
+                <span class="venue-icon">♿</span>
+                <div class="venue-text">
+                    <h3>Accessibility</h3>
+                    <p>${event.accessibility || 'Wheelchair accessible'}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

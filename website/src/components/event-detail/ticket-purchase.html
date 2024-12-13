@@ -1,0 +1,53 @@
+<!-- Ticket Purchase Component -->
+<section class="ticket-purchase">
+    <h2>Get Your Tickets</h2>
+    <div class="ticket-content">
+        <div class="price-display">
+            <div class="price-amount">$${event.price}</div>
+            <div class="price-label">per person</div>
+        </div>
+
+        <div class="ticket-info">
+            <div class="info-item">
+                <span class="info-icon">🎫</span>
+                <span class="info-text">Limited seats available</span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">📅</span>
+                <span class="info-text">${formatDate(event.date)}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">⭐</span>
+                <span class="info-text">Instant confirmation</span>
+            </div>
+        </div>
+
+        <a href="/checkout/${event.id}" class="purchase-button">
+            <span>Login to Purchase</span>
+            <span class="button-arrow">→</span>
+        </a>
+
+        <div class="secure-checkout">
+            <span class="secure-icon">🔒</span>
+            <span>Secure checkout</span>
+        </div>
+
+        <div class="share-section">
+            <h3>Share This Event</h3>
+            <div class="share-buttons">
+                <a href="#" class="share-button facebook">
+                    <img src="/icons/facebook.svg" alt="Share on Facebook">
+                </a>
+                <a href="#" class="share-button twitter">
+                    <img src="/icons/twitter.svg" alt="Share on Twitter">
+                </a>
+                <a href="#" class="share-button linkedin">
+                    <img src="/icons/linkedin.svg" alt="Share on LinkedIn">
+                </a>
+                <a href="#" class="share-button email">
+                    <img src="/icons/email.svg" alt="Share via Email">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

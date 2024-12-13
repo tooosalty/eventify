@@ -1,0 +1,51 @@
+/* Event List Styles */
+.event-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.event-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input,
+.category-filter {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.search-input {
+    flex: 1;
+}
+
+.search-input:focus,
+.category-filter:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .event-list {
+        padding: 1rem;
+    }
+
+    .event-filters {
+        flex-direction: column;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+}
