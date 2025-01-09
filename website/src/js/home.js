@@ -106,3 +106,24 @@ document.addEventListener('DOMContentLoaded', () => {
     displayUpcomingEvents();
     initHeroSlider();
 });
+
+// The fetch code t get events
+
+fetch('http://localhost/Eventify/get_events.php')
+  .then(response => response.json())
+  .then(events => {
+      const eventsContainer = document.getElementById('featuredEvents');
+      events.forEach(event => {
+          const eventCard = `
+              <div class="event-card">
+                  <h3>${event.EventName}</h3>
+                  <p>${event.Description}</p>
+                  <p>Date: ${event.Date} | Price: $${event.Price}</p>
+              </div>
+          `;
+          eventsContainer.innerHTML += eventCard;
+      });
+  })
+  .catch(error => console.error('Error fetching events:', error));
+
+

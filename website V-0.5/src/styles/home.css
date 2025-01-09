@@ -1,0 +1,133 @@
+/* Featured Events Section */
+.featured-events {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.featured-events h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.featured-events h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.event-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.event-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-image-container img {
+    transform: scale(1.05);
+}
+
+.event-info {
+    padding: 1.5rem;
+}
+
+.category-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    z-index: 1;
+}
+
+.event-info h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.event-date,
+.event-location,
+.event-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.view-details-button {
+    display: inline-block;
+    width: 100%;
+    padding: 0.8rem 0;
+    margin-top: 1rem;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-details-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .featured-events {
+        padding: 2rem 1rem;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .event-image-container {
+        height: 200px;
+    }
+}

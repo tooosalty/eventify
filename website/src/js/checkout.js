@@ -1,5 +1,19 @@
-import { db, auth } from './firebase-config.js';
-import { doc, getDoc, setDoc, collection } from 'firebase/firestore';
+fetch('/website/src/php/process_payment.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `booking_id=${encodeURIComponent(bookingId)}&amount=${encodeURIComponent(amount)}`,
+})
+.then(response => {
+    if (!response.ok) throw new Error('Payment failed');
+    return response.json();
+})
+.then(data => {
+    alert('Payment processed successfully!');
+})
+.catch(error => {
+    console.error('Error processing payment:', error);
+    alert('Payment failed: ' + error.message);
+});
 
 // Check authentication status
 auth.onAuthStateChanged((user) => {

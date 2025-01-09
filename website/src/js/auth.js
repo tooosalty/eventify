@@ -1,18 +1,10 @@
-import { auth } from './firebase-config.js';
-import { 
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
-} from 'firebase/auth';
-
 // Handle authentication state changes
-onAuthStateChanged(auth, (user) => {
+function updateAuthUI(isLoggedIn) {
     const loginLink = document.querySelector('.login-link');
     const profileLink = document.querySelector('.profile-link');
     const logoutBtn = document.querySelector('.logout-btn');
 
-    if (user) {
+    if (isLoggedIn) {
         loginLink?.classList.add('hidden');
         profileLink?.classList.remove('hidden');
         logoutBtn?.classList.remove('hidden');
@@ -21,7 +13,28 @@ onAuthStateChanged(auth, (user) => {
         profileLink?.classList.add('hidden');
         logoutBtn?.classList.add('hidden');
     }
-});
+}
+
+// Check authentication state
+async function checkAuthState() {
+    try {
+        const response = await fetch('/website/src/php/check_session.php');
+        const data = await response.json();
+        updateAuthUI(data.loggedIn);
+
+        if (data.loggedIn) {
+            console.log('User is logged in:', data.user);
+        } else {
+            console.log('User is not logged in');
+        }
+    } catch (error) {
+        console.error('Failed to check auth state:', error);
+    }
+}
+
+// Call on page load
+checkAuthState();
+
 
 // Password strength checker
 function checkPasswordStrength(password) {
@@ -34,19 +47,11 @@ function checkPasswordStrength(password) {
 }
 
 // Update password strength indicator
-function updatePasswordStrength(password, strengthBar) {
+function updatePasswordStrength(password, strengthBar, feedbackElement) {
     const strength = checkPasswordStrength(password);
-    strengthBar.className = 'password-strength-bar';
-    
-    if (strength === 0) {
-        strengthBar.style.width = '0';
-    } else if (strength <= 2) {
-        strengthBar.classList.add('strength-weak');
-    } else if (strength === 3) {
-        strengthBar.classList.add('strength-medium');
-    } else {
-        strengthBar.classList.add('strength-strong');
-    }
+    const feedback = ['Weak', 'Moderate', 'Strong', 'Very Strong'];
+    strengthBar.style.width = `${(strength / 4) * 100}%`;
+    feedbackElement.textContent = feedback[strength - 1] || 'Too Short';
 }
 
 // Form validation
@@ -55,13 +60,13 @@ function validateForm(form) {
     form.querySelectorAll('.form-group').forEach(group => {
         const input = group.querySelector('input');
         const errorMessage = group.querySelector('.error-message');
-        
+
         if (errorMessage) {
             errorMessage.remove();
         }
-        
+
         group.classList.remove('error', 'success');
-        
+
         if (!input.value) {
             group.classList.add('error');
             const message = document.createElement('span');
@@ -92,51 +97,82 @@ function validateForm(form) {
 
 // Login functionality
 const loginForm = document.getElementById('loginForm');
-loginForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!validateForm(loginForm)) return;
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
 
-    try {
-        await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = '/index.html';
-    } catch (error) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'error-message';
-        errorMessage.textContent = error.message;
-        loginForm.appendChild(errorMessage);
-    }
-});
+        if (!email || !password) {
+            alert('Email and password are required.');
+            return;
+        }
+
+        try {
+            const response = await fetch('/website/src/php/login.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                console.log('Redirecting to:', result.redirect);
+                window.location.href = result.redirect || '/website/src/pages/dashboard.html';
+            } else {
+                alert(result.error || 'Login failed.');
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+            alert('An unexpected error occurred. Please try again.');
+        }
+    });
+}
 
 // Register functionality
 const registerForm = document.getElementById('registerForm');
-registerForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!validateForm(registerForm)) return;
+if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    const email = document.getElementById('regEmail').value;
-    const password = document.getElementById('regPassword').value;
+        const name = document.getElementById('regName').value.trim();
+        const email = document.getElementById('regEmail').value.trim();
+        const password = document.getElementById('regPassword').value.trim();
 
-    try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        window.location.href = '/index.html';
-    } catch (error) {
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'error-message';
-        errorMessage.textContent = error.message;
-        registerForm.appendChild(errorMessage);
-    }
-});
+        if (!validateForm(registerForm)) return;
+
+        try {
+            const response = await fetch('/website/src/php/register.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message); // Show success message
+                window.location.href = '/website/src/pages/login.html'; // Redirect to login page
+            } else {
+                alert(`Error: ${result.error}`); // Show error message
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('An unexpected error occurred. Please try again.');
+        }
+    });
+}
 
 // Password strength indicators
 const passwordInputs = document.querySelectorAll('input[type="password"]');
 passwordInputs.forEach(input => {
     const strengthBar = input.parentElement.querySelector('.password-strength-bar');
-    if (strengthBar) {
+    const feedbackElement = input.parentElement.querySelector('.strength-feedback');
+    if (strengthBar && feedbackElement) {
         input.addEventListener('input', () => {
-            updatePasswordStrength(input.value, strengthBar);
+            updatePasswordStrength(input.value, strengthBar, feedbackElement);
         });
     }
 });
@@ -149,27 +185,28 @@ const registerBox = document.getElementById('registerBox');
 
 showRegister?.addEventListener('click', (e) => {
     e.preventDefault();
-    loginBox.style.animation = 'slideUpFade 0.6s ease forwards';
     loginBox.classList.add('hidden');
     registerBox.classList.remove('hidden');
-    registerBox.style.animation = 'slideUpFade 0.6s ease forwards';
 });
 
 showLogin?.addEventListener('click', (e) => {
     e.preventDefault();
-    registerBox.style.animation = 'slideUpFade 0.6s ease forwards';
     registerBox.classList.add('hidden');
     loginBox.classList.remove('hidden');
-    loginBox.style.animation = 'slideUpFade 0.6s ease forwards';
 });
 
 // Logout functionality
 const logoutBtn = document.querySelector('.logout-btn');
 logoutBtn?.addEventListener('click', async () => {
-    try {
-        await signOut(auth);
-        window.location.href = '/index.html';
-    } catch (error) {
-        alert('Logout failed: ' + error.message);
+    if (confirm('Are you sure you want to log out?')) {
+        try {
+            await fetch('/website/src/php/logout.php', { method: 'POST' });
+            window.location.href = '/index.html';
+        } catch (error) {
+            alert('Logout failed: ' + error.message);
+        }
     }
 });
+
+// Check authentication state on page load
+checkAuthState();

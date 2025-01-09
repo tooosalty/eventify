@@ -1,0 +1,56 @@
+<!-- Event Detail Component -->
+<article class="event-detail">
+    <div class="event-header">
+        <div class="event-cover">
+            <img src="${event.image}" alt="${event.title}">
+            <span class="event-category">${event.category}</span>
+        </div>
+        <div class="event-info">
+            <h1 class="event-title">${event.title}</h1>
+            <div class="event-meta">
+                <div class="meta-item">
+                    <i class="icon-calendar"></i>
+                    <div>
+                        <span class="meta-label">Date & Time</span>
+                        <span class="meta-value">${formatDate(event.date)}</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <i class="icon-location"></i>
+                    <div>
+                        <span class="meta-label">Location</span>
+                        <span class="meta-value">${event.location}</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <i class="icon-ticket"></i>
+                    <div>
+                        <span class="meta-label">Price</span>
+                        <span class="meta-value">$${event.price}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="event-body">
+        <div class="event-description">
+            <h2>About This Event</h2>
+            <p>${event.description}</p>
+        </div>
+        <div class="event-highlights">
+            <h2>Event Highlights</h2>
+            <ul>
+                ${event.highlights.map(highlight => `
+                    <li>${highlight}</li>
+                `).join('')}
+            </ul>
+        </div>
+    </div>
+    <div class="event-actions">
+        <button class="btn-primary">Book Now</button>
+        <div class="share-buttons">
+            <button class="btn-share facebook">Share on Facebook</button>
+            <button class="btn-share twitter">Share on Twitter</button>
+        </div>
+    </div>
+</article>

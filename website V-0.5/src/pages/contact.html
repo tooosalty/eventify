@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify - Contact Us</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/contact.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Eventify</div>
+        <div class="nav-links">
+            <a href="/website/index.html">Home</a>
+            <a href="/website/src/pages/events.html" class="active">Events</a>
+            <a href="/website/src/pages/profile.html" class="profile-link hidden">Profile</a>
+            <a href="/website/src/pages/contact.html">Contact</a>
+            <a href="/website/src/pages/login.html" class="login-link">Login</a>
+            <button class="logout-btn hidden">Logout</button>
+        </div>
+    </nav>
+
+    <main class="contact-container">
+        <h1>Contact Us</h1>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Have questions? We'd love to hear from you! Send us a message and we'll respond as soon as possible.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">support@eventify.com</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">(555) 123-4567</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Address</div>
+                            <div class="contact-value">123 Event Street, City, Country</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Business Hours</div>
+                            <div class="contact-value">Mon - Fri: 9:00 AM - 6:00 PM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/facebook.svg" alt="Facebook">
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/x.svg" alt="Twitter">
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instagram.svg" alt="Instagram">
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="/website/js/firebase-config.js"></script>
+    <script type="module" src="/website/js/auth.js"></script>
+    <script type="module" src="/website/js/contact.js"></script>
+    <script type="module" src="/website/js/utils/footer-loader.js"></script>
+    <script type="module" src="/website/src/js/footer.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Eventify</h3>
+            <p>Discover and book the best events in your area. From concerts to conferences, we've got you covered.</p>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/facebook.svg" alt="Facebook">
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/x.svg" alt="Twitter">
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instagram.svg" alt="Instagram">
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/events.html">Events</a></li>
+                <li><a href="../pages/profile.html">Profile</a></li>
+                <li><a href="../pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Categories</h3>
+            <ul class="footer-links">
+                <li><a href="/website/src/pages/events.html">Music</a></li>
+                <li><a href="/website/src/pages/events.html">Tech</a></li>
+                <li><a href="/website/src/pages/events.html">Sports</a></li>
+                <li><a href="/website/src/pages/events.html">Arts</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Stay updated with our latest events and offers.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </div>
+</footer>
+</html>

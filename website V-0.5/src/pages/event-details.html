@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify - Event Details</title>
+    <link rel="stylesheet" href="/website/src/styles/main.css">
+    <link rel="stylesheet" href="/website/src/styles/event-details.css">
+    <link rel="stylesheet" href="/website/src/styles/footer.css">
+    
+    <link rel="stylesheet" href="/website/src/styles/components/event-detail.css">
+    <link rel="stylesheet" href="/website/src/styles/components/event-card.css">
+    <link rel="stylesheet" href="/website/src/styles/components/event-list.css">
+
+    <link rel="stylesheet" href="/website/src/styles/components/event-detail/event-content.css">
+    <link rel="stylesheet" href="/website/src/styles/components/event-detail/event-header.css">
+    <link rel="stylesheet" href="/website/src/styles/components/event-detail/similar-events.css">
+
+    <link rel="stylesheet" href="/website/src/styles/components/event-detail/venue-info.css">
+    <link rel="stylesheet" href="/website/src/styles/components/event-detail/ticket-purchase.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Eventify</div>
+        <div class="nav-links">
+            <a href="/website/index.html">Home</a>
+            <a href="/website/src/pages/events.html" class="active">Events</a>
+            <a href="/website/src/pages/profile.html" class="profile-link hidden">Profile</a>
+            <a href="/website/src/pages/contact.html">Contact</a>
+            <a href="/website/src/pages/login.html" class="login-link">Login</a>
+            <button class="logout-btn hidden">Logout</button>
+        </div>
+    </nav>
+
+    <main class="event-details-container">
+        <div id="eventDetails">
+            <!-- Event details will be populated by JavaScript -->
+            <article class="event-detail">
+                <div class="event-header">
+                    <div class="event-cover">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="Tech Summit 2024">
+                        <span class="event-category">tech</span>
+                    </div>
+                    <div class="event-info">
+                        <h1 class="event-title">Tech Summit 2024</h1>
+                        <div class="event-meta">
+                            <div class="meta-item">
+                                <i class="icon-calendar"></i>
+                                <div>
+                                    <span class="meta-label">Date & Time</span>
+                                    <span class="meta-value">March 15, 2024</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="icon-location"></i>
+                                <div>
+                                    <span class="meta-label">Location</span>
+                                    <span class="meta-value">Silicon Valley Convention Center</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="icon-ticket"></i>
+                                <div>
+                                    <span class="meta-label">Price</span>
+                                    <span class="meta-value">$299</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-body">
+                    <div class="event-description">
+                        <h2>About This Event</h2>
+                        <p>Join industry leaders and innovators at the biggest tech conference of the year. Featuring keynotes, workshops, and networking opportunities with the brightest minds in technology.</p>
+                    </div>
+                    <div class="event-highlights">
+                        <h2>Event Highlights</h2>
+                        <ul>
+                            <li>Keynote speeches from tech industry leaders</li>
+                            <li>Hands-on workshops on AI and Machine Learning</li>
+                            <li>Networking sessions with industry professionals</li>
+                            <li>Product launches and demonstrations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event-actions">
+                    <button class="btn-primary">Book Now</button>
+                    <div class="share-buttons">
+                        <button class="btn-share facebook">Share on Facebook</button>
+                        <button class="btn-share twitter">Share on Twitter</button>
+                    </div>
+                </div>
+            </article>
+
+            <section class="venue-info-section">
+                <h2>Venue Information</h2>
+                <div class="venue-content">
+                    <div class="venue-map">
+                        <img src="https://via.placeholder.com/600x300" alt="Venue Map" class="map-image">
+                    </div>
+                    <div class="venue-details">
+                        <div class="venue-item">
+                            <span class="venue-icon">📍</span>
+                            <div class="venue-text">
+                                <h3>Address</h3>
+                                <p>Silicon Valley Convention Center</p>
+                            </div>
+                        </div>
+                        <div class="venue-item">
+                            <span class="venue-icon">🅿️</span>
+                            <div class="venue-text">
+                                <h3>Parking</h3>
+                                <p>Available on-site</p>
+                            </div>
+                        </div>
+                        <div class="venue-item">
+                            <span class="venue-icon">♿</span>
+                            <div class="venue-text">
+                                <h3>Accessibility</h3>
+                                <p>Wheelchair accessible</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="ticket-purchase">
+                <h2>Get Your Tickets</h2>
+                <div class="ticket-content">
+                    <div class="price-display">
+                        <div class="price-amount">$299</div>
+                        <div class="price-label">per person</div>
+                    </div>
+            
+                    <div class="ticket-info">
+                        <div class="info-item">
+                            <span class="info-icon">🎫</span>
+                            <span class="info-text">Limited seats available</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📅</span>
+                            <span class="info-text">March 15, 2024</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⭐</span>
+                            <span class="info-text">Instant confirmation</span>
+                        </div>
+                    </div>
+            
+                    <a href="/checkout/tech-summit-2024" class="purchase-button">
+                        <span>Login to Purchase</span>
+                        <span class="button-arrow">→</span>
+                    </a>
+            
+                    <div class="secure-checkout">
+                        <span class="secure-icon">🔒</span>
+                        <span>Secure checkout</span>
+                    </div>
+            
+                    <div class="share-section">
+                        <h3>Share This Event</h3>
+                        <div class="share-buttons">
+                            <a href="#" class="share-button facebook">
+                                <img src="/icons/facebook.svg" alt="Share on Facebook">
+                            </a>
+                            <a href="#" class="share-button twitter">
+                                <img src="/icons/twitter.svg" alt="Share on Twitter">
+                            </a>
+                            <a href="#" class="share-button linkedin">
+                                <img src="/icons/linkedin.svg" alt="Share on LinkedIn">
+                            </a>
+                            <a href="#" class="share-button email">
+                                <img src="/icons/email.svg" alt="Share via Email">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+            <!-- Similar Events Component -->
+            <section class="similar-events">
+                <h2>Similar Events You Might Like</h2>
+                <div class="similar-events-grid">
+                    <article class="similar-event-card">
+                        <div class="similar-event-image">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="Tech Summit 2024">
+                            <span class="event-category">tech</span>
+                        </div>
+                        <div class="similar-event-info">
+                            <h3>Tech Summit 2024</h3>
+                            <div class="similar-event-meta">
+                                <span class="event-date">📅 March 15, 2024</span>
+                                <span class="event-price">💰 $299</span>
+                            </div>
+                            <a href="/event/tech-summit-2024" class="view-details-button">View Details</a>
+                        </div>
+                    </article>
+            
+                    <article class="similar-event-card">
+                        <div class="similar-event-image">
+                            <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800" alt="Summer Music Festival">
+                            <span class="event-category">music</span>
+                        </div>
+                        <div class="similar-event-info">
+                            <h3>Summer Music Festival</h3>
+                            <div class="similar-event-meta">
+                                <span class="event-date">📅 July 20, 2024</span>
+                                <span class="event-price">💰 $149</span>
+                            </div>
+                            <a href="/event/summer-music-festival" class="view-details-button">View Details</a>
+                        </div>
+                    </article>
+            
+                    <article class="similar-event-card">
+                        <div class="similar-event-image">
+                            <img src="https://images.unsplash.com/photo-1573152958734-1922c188fba3?w=800" alt="Digital Art Expo">
+                            <span class="event-category">arts</span>
+                        </div>
+                        <div class="similar-event-info">
+                            <h3>Digital Art Expo</h3>
+                            <div class="similar-event-meta">
+                                <span class="event-date">📅 May 12, 2024</span>
+                                <span class="event-price">💰 $45</span>
+                            </div>
+                            <a href="/event/digital-art-expo" class="view-details-button">View Details</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <script type="module" src="/website/src/js/firebase-config.js"></script>
+    <script type="module" src="/website/src/js/auth.js"></script>
+    <script type="module" src="/website//src/js/event-details.js"></script>
+    <script type="module" src="/website/src/js/utils/footer-loader.js"></script>
+    <script type="module" src="/website/src/js/footer.js"></script>
+    <script type="module" src="/website/src/js/events.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Eventify</h3>
+            <p>Discover and book the best events in your area. From concerts to conferences, we've got you covered.</p>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/facebook.svg" alt="Facebook">
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/x.svg" alt="Twitter">
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instagram.svg" alt="Instagram">
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/linkedin.svg" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/events.html">Events</a></li>
+                <li><a href="../pages/profile.html">Profile</a></li>
+                <li><a href="../pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Categories</h3>
+            <ul class="footer-links">
+                <li><a href="/website/src/pages/events.html">Music</a></li>
+                <li><a href="/website/src/pages/events.html">Tech</a></li>
+                <li><a href="/website/src/pages/events.html">Sports</a></li>
+                <li><a href="/website/src/pages/events.html">Arts</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Stay updated with our latest events and offers.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Eventify. All rights reserved.</p>
+    </div>
+</footer>
+</html>

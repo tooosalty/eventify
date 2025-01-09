@@ -8,28 +8,46 @@ contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subject: document.getElementById('subject').value.trim(),
+        message: document.getElementById('message').value.trim()
     };
 
-    try {
-        // Simulate form submission (replace with actual API call)
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        // Show success message
-        successMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-        successMessage.classList.add('show');
-        
-        // Hide success message after 3 seconds
-        setTimeout(() => {
-            successMessage.classList.remove('show');
-        }, 3000);
+    // Client-side validation
+    if (!formData.name || !formData.email || !formData.message) {
+        alert('Please fill out all required fields.');
+        return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
 
-        // Reset form
-        contactForm.reset();
-        
+    try {
+        // Submit form data to the backend
+        const response = await fetch('/website/src/php/contact.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&subject=${encodeURIComponent(formData.subject)}&message=${encodeURIComponent(formData.message)}`,
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            successMessage.textContent = result.message || 'Thank you for your message! We will get back to you soon.';
+            successMessage.classList.add('show');
+
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 3000);
+
+            // Reset form
+            contactForm.reset();
+        } else {
+            const error = await response.json();
+            alert(`Error: ${error.message || 'Failed to send message.'}`);
+        }
     } catch (error) {
         alert('Failed to send message: ' + error.message);
     }
@@ -39,12 +57,10 @@ contactForm?.addEventListener('submit', async (e) => {
 const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
 
 formInputs.forEach(input => {
-    // Add focus animation
     input.addEventListener('focus', () => {
         input.parentElement.classList.add('focused');
     });
 
-    // Remove focus animation
     input.addEventListener('blur', () => {
         if (!input.value) {
             input.parentElement.classList.remove('focused');

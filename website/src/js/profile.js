@@ -1,5 +1,21 @@
-import { db, auth } from './firebase-config.js';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+fetch('/website/src/php/get_bookings.php')
+    .then(response => response.json())
+    .then(bookings => {
+        const bookingsContainer = document.getElementById('bookings');
+        bookings.forEach(booking => {
+            const bookingElement = `
+                <div class="booking-item">
+                    <h3>${booking.EventName}</h3>
+                    <p>Quantity: ${booking.Quantity}</p>
+                    <p>Total Price: $${booking.TotalPrice}</p>
+                </div>`;
+            bookingsContainer.innerHTML += bookingElement;
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching bookings:', error);
+        alert('Failed to load bookings.');
+    });
 
 // Check authentication status
 auth.onAuthStateChanged((user) => {

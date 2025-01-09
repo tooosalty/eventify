@@ -1,0 +1,76 @@
+<!-- Event Content Component -->
+<div class="event-content">
+    <div class="event-main">
+        <section class="event-description">
+            <h2>About This Event</h2>
+            <p>${event.description}</p>
+        </section>
+        
+        <section class="event-highlights">
+            <h2>Event Highlights</h2>
+            <ul class="highlights-list">
+                ${event.highlights.map(highlight => `
+                    <li class="highlight-item">
+                        <span class="highlight-icon">✨</span>
+                        <span class="highlight-text">${highlight}</span>
+                    </li>
+                `).join('')}
+            </ul>
+        </section>
+
+        <section class="event-location">
+            <h2>Venue Information</h2>
+            <div class="venue-details">
+                <div class="venue-map">
+                    <img src="${event.venueMap}" alt="Venue Map" class="map-image">
+                </div>
+                <div class="venue-info">
+                    <p><strong>Address:</strong> ${event.location}</p>
+                    <p><strong>Parking:</strong> ${event.parking}</p>
+                    <p><strong>Accessibility:</strong> ${event.accessibility}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <aside class="event-sidebar">
+        <div class="ticket-card">
+            <h3>Get Your Tickets</h3>
+            <div class="ticket-price">
+                <span class="price-amount">$${event.price}</span>
+                <span class="price-type">per person</span>
+            </div>
+            <div class="ticket-info">
+                <p>🎫 ${event.seatsLeft} seats available</p>
+                <p>📅 ${formatDate(event.date)}</p>
+                <p>⭐ Instant confirmation</p>
+            </div>
+            <a href="/checkout/${event.id}" class="purchase-button">
+                <span>Purchase Tickets</span>
+                <span class="button-icon">→</span>
+            </a>
+            <div class="secure-badge">
+                <span class="secure-icon">🔒</span>
+                <span>Secure checkout</span>
+            </div>
+        </div>
+
+        <div class="share-card">
+            <h3>Share This Event</h3>
+            <div class="share-buttons">
+                <button class="share-button facebook">
+                    <img src="/icons/facebook.svg" alt="Share on Facebook">
+                </button>
+                <button class="share-button twitter">
+                    <img src="/icons/twitter.svg" alt="Share on Twitter">
+                </button>
+                <button class="share-button linkedin">
+                    <img src="/icons/linkedin.svg" alt="Share on LinkedIn">
+                </button>
+                <button class="share-button email">
+                    <img src="/icons/email.svg" alt="Share via Email">
+                </button>
+            </div>
+        </div>
+    </aside>
+</div>

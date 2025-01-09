@@ -1,0 +1,197 @@
+/* Upcoming Events Section */
+.upcoming-events {
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.upcoming-events h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.upcoming-events h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+}
+
+.upcoming-events-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.upcoming-events-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-event {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.timeline-event.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-date {
+    min-width: 80px;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    border-radius: 8px;
+    color: white;
+}
+
+.timeline-date .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.timeline-date .month {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+}
+
+.timeline-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.timeline-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.timeline-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeline-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Modified View Details button styles */
+.timeline-event .view-details-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+}
+
+.timeline-event .view-details-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.view-all-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.view-all-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.view-all-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .upcoming-events {
+        padding: 2rem 1rem;
+    }
+
+    .timeline-event {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .timeline-date {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .timeline-date .day,
+    .timeline-date .month {
+        font-size: 1rem;
+    }
+
+    .timeline-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .timeline-actions {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .timeline-event .view-details-button {
+        width: auto;
+    }
+}

@@ -1,0 +1,168 @@
+/* Profile container */
+.profile-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.profile-header {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.profile-info h1 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.profile-content {
+    display: grid;
+    gap: 2rem;
+}
+
+.content-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.ticket-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+}
+
+.ticket-header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.ticket-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.ticket-body {
+    padding: 1rem;
+}
+
+.ticket-info p {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.ticket-actions {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    text-align: right;
+}
+
+.ticket-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.ticket-button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 0 1rem;
+    }
+
+    .profile-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-avatar {
+        margin: 0 auto;
+    }
+
+    .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ticket-grid {
+        grid-template-columns: 1fr;
+    }
+}
